@@ -1,1 +1,1 @@
-https://github.com/roligoli/ono-tebe-nado-fd
+https://github.com/roligoli/ono-tebe-nado.git
