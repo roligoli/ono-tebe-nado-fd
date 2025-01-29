@@ -9,28 +9,29 @@ main {
   margin: 0 auto;
 }
 
-.site-header {
+.header {
   display: grid;
   grid-template-columns: 1.51fr 2fr 1.5fr;
   align-items: center;
   padding: 92px 51px 89px;
 }
 
-.site-header__nav-list {
+.header__links-list {
   display: flex;
   gap: 32px;
-  list-style: circle;
-  padding-left: 20px;
 }
 
-.site-header__nav-item {
+.header__links-list-item {
+  list-style: circle;
+}
+
+.header__links-list-item_no-bullit {
   list-style: none;
 }
 
 .header__link {
   font-size: 18px;
   white-space: nowrap;
-  text-decoration: underline;
 }
 
 .text-link:hover {
@@ -42,65 +43,54 @@ main {
   text-decoration: none;
 }
 
-.site-header__logo {
+.header__logo {
   display: block;
   justify-self: center;
   align-self: center;
   width: 140px;
 }
 
-.site-header__logo-image {
+.header__logo-image {
   width: 100%;
 }
 
 .address {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  font-style: inherit;
 }
 
 .header__address {
   justify-self: end;
+  font-style: inherit;
 }
 
-.footer__address {
-  justify-self: start;
-}
-
-.address__link {
+.address__item {
+  display: block;
   font-size: 18px;
   line-height: 1.35;
   text-underline-position: under;
-  color: #000;
 }
 
-.address__text {
+.address__address-text {
   font-size: 18px;
-  font-style: italic;
   line-height: 1.35;
-  color: #000;
-}
-
-.background-image {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .cover {
   position: relative;
   padding: 165px 50px 50px 50px;
   background-image: url(../images/cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.cover__overlay {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
+  opacity: 0.6000000238418579;
   background-color: #000000;
 }
 
@@ -118,25 +108,27 @@ main {
   text-transform: uppercase;
 }
 
-.cover__title-part {
+.aligned-text {
   display: block;
 }
 
-.cover__title-part_center {
+.aligned-text_center {
   line-height: 1;
   text-align: center;
 }
 
-.cover__title-part_right {
+.aligned-text_right {
   line-height: 1;
   text-align: right;
 }
 
-.cover__title-spacing {
+.letter-spacing-extended {
   letter-spacing: 60px;
 }
 
-.cover__title-no-spacing {
+/* Убирает ненужный отступ в конце слова, создаваемый свойством letter-spacing всего элемента */
+
+.remove-spacing {
   letter-spacing: normal;
 }
 
@@ -158,7 +150,7 @@ main {
   word-spacing: 18px;
 }
 
-.cover__bet-button {
+.bet-button {
   border: 1px #FFF solid;
   padding: 14px 32px;
   color: #FFF;
@@ -171,9 +163,9 @@ main {
   cursor: pointer;
 }
 
-.cover__bet-button:hover {
-  color: #FFFFFF;
-  background-color: #000000;
+.bet-button:hover {
+  color: #000000;
+  background-color: #FFF;
 }
 
 .lots {
@@ -186,26 +178,25 @@ main {
   font-size: 40px;
   line-height: 1;
   text-transform: uppercase;
-  color: #000;
 }
 
-.lots__list {
+.lots__card-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 25px;
   list-style: none;
 }
 
-.lots__list-item {
+.lost__card-list-item {
   height: 100%;
 }
 
-.lots__link {
+.card-link {
   display: block;
   height: 100%;
 }
 
-.lots__card {
+.card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -216,19 +207,25 @@ main {
   padding: 50px 40px;
 }
 
-.lots__card_type_film {
+.card_type_film {
   background-image: url(../images/card-lot-01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.lots__card_type_book {
+.card_type_book {
   background-image: url(../images/card-lot-02.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.lots__card_type_picture {
+.card_type_picture {
   background-image: url(../images/card-lot-03.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.lots__card-title {
+.card__title {
   position: relative;
   z-index: 1;
   color: #FFF;
@@ -239,7 +236,7 @@ main {
   text-transform: uppercase;
 }
 
-.lots__card-text {
+.card__text {
   position: relative;
   z-index: 1;
   color: #FFF;
@@ -247,14 +244,13 @@ main {
   line-height: 1.2;
 }
 
-.lots__more-link {
+.lots__look-more-link {
   display: block;
   margin: 30px 0 0 40px;
   font-size: 20px;
   text-decoration-line: underline;
   text-underline-position: under;
   width: fit-content;
-  color: #000;
 }
 
 .about {
@@ -292,7 +288,6 @@ main {
   font-size: 40px;
   line-height: 1;
   text-transform: uppercase;
-  color: #000;
 }
 
 .about__text {
@@ -304,7 +299,6 @@ main {
 .about__text p {
   font-size: 20px;
   line-height: normal;
-  color: #000;
 }
 
 .footer {
@@ -318,16 +312,19 @@ main {
   height: 48px;
 }
 
-.footer__nav-list {
+.footer__menu-list {
   text-align: center;
   list-style: none;
 }
 
-.footer__nav-link {
+.footer__menu-link {
   font-size: 18px;
   line-height: normal;
   text-underline-position: under;
-  color: #000;
+}
+
+.footer__menu-link_active {
+  text-decoration: none;
 }
 
 .footer__social-list {
